@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     ejson = {
-      version = "0.1"
+      version = "0.1.0"
       source  = "bouk/ejson"
     }
   }
@@ -15,6 +15,6 @@ data "ejson_file" "config" {
   file = "secrets.ejson"
 }
 
-output something {
-  value = ejson_file.config.data.hi
+output "something" {
+  value = data.ejson_file.config
 }
