@@ -11,14 +11,16 @@ import (
 func Provider() *schema.Provider {
 	return &schema.Provider{
 		Schema: map[string]*schema.Schema{
-			"keydir": &schema.Schema{
+			"keydir": {
 				Type:        schema.TypeString,
 				Required:    true,
 				DefaultFunc: schema.EnvDefaultFunc("EJSON_KEYDIR", "/opt/ejson/keys"),
 				Description: `Directory to read private keys from. Defaults to $EJSON_KEYDIR or /opt/ejson/keys if not set.`,
 			},
 		},
-		ResourcesMap: map[string]*schema.Resource{},
+		ResourcesMap: map[string]*schema.Resource{
+			"ejson_keypair": resourceEjsonKeypair(),
+		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"ejson_file": dataSourceEjsonFile(),
 		},

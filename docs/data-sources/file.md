@@ -2,12 +2,12 @@
 page_title: "ejson_file Data Source - terraform-provider-ejson"
 subcategory: ""
 description: |-
-  
+  Decrypt an ejson file and access its contents.
 ---
 
 # Data Source `ejson_file`
 
-
+Decrypt an ejson file and access its contents.
 
 ## Example Usage
 

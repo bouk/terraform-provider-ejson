@@ -10,8 +10,7 @@ import (
 )
 
 func Test_dataSourceEjsonFile(t *testing.T) {
-	resource.Test(t, resource.TestCase{
-		IsUnitTest: true,
+	resource.UnitTest(t, resource.TestCase{
 		ProviderFactories: map[string]func() (*schema.Provider, error){
 			"ejson": func() (*schema.Provider, error) {
 				return Provider(), nil

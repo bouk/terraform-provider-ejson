@@ -11,25 +11,26 @@ import (
 
 func dataSourceEjsonFile() *schema.Resource {
 	return &schema.Resource{
+		Description: `Decrypt an ejson file and access its contents.`,
 		Schema: map[string]*schema.Schema{
-			"file": &schema.Schema{
+			"file": {
 				Type:        schema.TypeString,
 				Required:    true,
 				Description: `ejson file to decrypt.`,
 			},
-			"private_key": &schema.Schema{
+			"private_key": {
 				Type:        schema.TypeString,
 				Optional:    true,
 				Sensitive:   true,
 				Description: `Private key to use for decryption. The provider-level config keydir is used to find a key by default.`,
 			},
-			"data": &schema.Schema{
+			"data": {
 				Type:        schema.TypeString,
 				Computed:    true,
 				Sensitive:   true,
 				Description: `Decrypted contents of ejson file. Use jsondecode to get an object from the JSON blob.`,
 			},
-			"map": &schema.Schema{
+			"map": {
 				Type:        schema.TypeMap,
 				Computed:    true,
 				Sensitive:   true,
@@ -41,7 +42,7 @@ func dataSourceEjsonFile() *schema.Resource {
 	}
 }
 
-func dataSourceEjsonFileRead(ctx context.Context, file *schema.ResourceData, i interface{}) diag.Diagnostics {
+func dataSourceEjsonFileRead(_ context.Context, file *schema.ResourceData, i interface{}) diag.Diagnostics {
 	config := i.(*Config)
 	filePath := file.Get("file").(string)
 	file.SetId(filePath)
