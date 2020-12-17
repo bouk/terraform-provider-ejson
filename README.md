@@ -12,7 +12,7 @@ go build -o terraform-provider-ejson
 terraform {
   required_providers {
     ejson = {
-      version = "1.1.0"
+      version = "1.1.1"
       source  = "bouk/ejson"
     }
   }
