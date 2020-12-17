@@ -1,7 +1,7 @@
 terraform {
   required_providers {
     ejson = {
-      version = "0.1.0"
+      version = "1.1.0"
       source  = "bouk/ejson"
     }
   }
