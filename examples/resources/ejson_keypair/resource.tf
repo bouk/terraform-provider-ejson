@@ -1,6 +1,12 @@
 resource "ejson_keypair" "key" {}
 
-data "ejson_file" "secrets" {
-  file        = "secrets.ejson"
-  private_key = ejson_keypair.key.private_key
+resource "ejson_file" "secrets" {
+  data = jsonencode({
+    "hello" => "nice to meet you"
+  })
+  public_key = ejson_keypair.key.public_key
+}
+
+output "encrypted" {
+  value = ejson_file.secrets.encrypted
 }
