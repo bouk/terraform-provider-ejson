@@ -20,6 +20,7 @@ func Provider() *schema.Provider {
 		},
 		ResourcesMap: map[string]*schema.Resource{
 			"ejson_keypair": resourceEjsonKeypair(),
+			"ejson_file":    resourceEjsonFile(),
 		},
 		DataSourcesMap: map[string]*schema.Resource{
 			"ejson_file": dataSourceEjsonFile(),
