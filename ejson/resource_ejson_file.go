@@ -30,14 +30,10 @@ func resourceEjsonFile() *schema.Resource {
 			},
 			"encrypted": {
 				Type:        schema.TypeString,
-				Sensitive:   true,
 				Computed:    true,
 				Description: "The encrypted data",
 			},
 		},
-		//Importer: &schema.ResourceImporter{
-		//	StateContext: resourceEjsonFileImport,
-		//},
 		ReadContext: schema.NoopContext,
 		DeleteContext: func(ctx context.Context, data *schema.ResourceData, i interface{}) diag.Diagnostics {
 			data.SetId("")
