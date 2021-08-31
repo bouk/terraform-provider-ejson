@@ -3,7 +3,7 @@ HOSTNAME=registry.terraform.io
 NAMESPACE=bouk
 NAME=ejson
 BINARY=terraform-provider-${NAME}
-VERSION=1.2.0
+VERSION=1.2.2
 OS_ARCH=darwin_amd64
 
 default: install
